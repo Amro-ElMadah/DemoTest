@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Check24Test</string>
+
+    <!--General-->
+    <string name="network_error">You have issue in your internet connection</string>
+    <string name="no_data">"There's no real estates at the moment, please try again later"</string>
+    <string name="retry">Retry</string>
+
+    <!--Real Estate Item-->
+    <string name="price">Price: %s</string>
+    <string name="city">City: %s</string>
+    <string name="area_size">Area size: %s m</string>
+    <string name="number_of_rooms">Number of rooms: %s</string>
+
+    <!--Real Estate Details screen-->
+    <string name="professional">Professional: %s</string>
+    <string name="number_of_bedrooms">Number of bedrooms: %s</string>
+    <string name="property_type">Property type: %s</string>
+</resources>

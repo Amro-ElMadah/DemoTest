@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest.Builder
-import com.example.check24test.R
 import com.example.check24test.R.drawable
 import com.example.check24test.R.string
 import com.example.check24test.data.remote.network.response.Check24Response.Loading
@@ -65,8 +64,8 @@ fun Check24ListScreen(
                 EmptyListScreen()
             }
 
-        else -> if (response.throwable != null) {
-            ErrorScreen(stringResource(id = R.string.network_error)) {
+        else -> if (response.errorType != null) {
+            ErrorScreen(stringResource(id = response.errorType!!.errorMessageId)) {
                 viewModel.loadRealEstates()
             }
         }

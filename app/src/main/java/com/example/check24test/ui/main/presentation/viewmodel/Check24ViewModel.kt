@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.check24test.data.remote.network.response.Check24Response
 import com.example.check24test.data.remote.network.response.RealEstateAdvertisement
+import com.example.check24test.data.remote.network.retrofit.getErrorType
 import com.example.check24test.ui.main.domain.usecases.GetRealEstateDetailsUseCase
 import com.example.check24test.ui.main.domain.usecases.GetRealEstatesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -33,7 +34,7 @@ class Check24ViewModel @Inject constructor(
                     _realEstates.emit(Check24Response.Loading(true))
                 }
                 .catch {
-                    _realEstates.emit(Check24Response.Error(it))
+                    _realEstates.emit(Check24Response.Error(it.getErrorType()))
                 }
                 .collect {
                     _realEstates.emit(Check24Response.Success(it.items))
@@ -48,7 +49,7 @@ class Check24ViewModel @Inject constructor(
                     _details.emit(Check24Response.Loading(true))
                 }
                 .catch {
-                    _details.emit(Check24Response.Error(it))
+                    _details.emit(Check24Response.Error(it.getErrorType()))
                 }
                 .collect {
                     _details.emit(Check24Response.Success(it))

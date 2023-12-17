@@ -2,6 +2,7 @@ package com.example.check24test.ui.main.presentation.view.screens
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -16,7 +17,8 @@ import com.example.check24test.ui.theme.Check24TestTheme
 @Composable
 fun Check24AppScreens(viewModel: Check24ViewModel) {
     var selectedItemId by remember { mutableStateOf<Int?>(null) }
-    var darkTheme by remember { mutableStateOf(false) }
+    val isSystemInDarkTheme = isSystemInDarkTheme()
+    var darkTheme by remember { mutableStateOf(isSystemInDarkTheme) }
 
     Check24TestTheme(darkTheme) {
         BackHandler(

@@ -57,8 +57,8 @@ fun Check24DetailsScreen(
                 onBackButtonPressed
             )
 
-        else -> if (response.throwable != null) {
-            ErrorScreen(stringResource(id = R.string.network_error)) {
+        else -> if (response.errorType != null) {
+            ErrorScreen(stringResource(id = response.errorType!!.errorMessageId)) {
                 viewModel.loadRealEstateDetails(realEstateId = realEstateSelectedId)
             }
         }
